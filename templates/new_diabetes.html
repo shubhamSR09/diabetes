@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diabetes</title>
+    <link rel="shortcut icon" href="{{ url_for('static', filename='diabetes-favicon.ico') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/5f3f547070.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+    <style>
+      .form{
+        
+        margin-top: 50px;
+        margin-bottom: 100px;
+        margin-right: 150px;
+        margin-left: 80px;
+        
+      }
+      </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class='container-heading'><span class="heading_font">Diabetes Detection</span></h1>
+   
+</div>
+<div class="form">
+  
+  <form action="{{ url_for('predict') }}" method="POST">
+    <label for="age" inputmode="number">Age : </label>
+    <input type="number" id="age" name="age" placeholder="Age">
+    <br>
+
+    <label for="sex" >Gender</label>
+    <input type="number" id="sex" name="sex" placeholder="Male=1, Female=0" input type="number">
+    <br>
+
+    <label for="chest pain type" inputmode="number">Polydipsia: </label>
+    <input type="number" id="chest pain type" name="chest pain type" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="trestbps" inputmode="number">Sudden Weigth loss: </label>
+    <input type="number" id="trestbps" name="trestbps" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="serum cholestoral in mg/dl">Polyphagia: </label>
+    <input type="number" id="serum cholestoral in mg/dl" name="serum cholestoral in mg/dl" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="restecg">Gental Thrush: </label>
+    <input type="number" id="restecg" name="restecg" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="thalach">Visual Blurring: </label>
+    <input type="number" id="thalach" name="thalach" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="thal">Itching : </label>
+    <input type="number" id="thal" name="thal14" placeholder="YES=1, NO=0">
+    <br>
+    <br>
+
+    <label for="exang">Irritability: </label>
+    <input type="number" id="exang" name="exang" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="oldpeak">Delayed Healing : </label>
+    <input type="number" id="oldpeak" name="oldpeak" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="slope">Partial Paresis : </label>
+    <input type="number" id="slope" name="slope" placeholder="YES=1, NO=0">
+    <br>
+
+    <label for="thal">Muscle Stiffness : </label>
+    <input type="number" id="thal" name="thal" placeholder="YES=1, NO=0">
+    <br>
+    <br>
+
+    <label for="thal">Alopecia : </label>
+    <input type="number" id="thal" name="thal12" placeholder="YES=1, NO=0">
+    <br>
+    <br>
+
+    <label for="thal">Obesity : </label>
+    <input type="number" id="thal" name="thal13" placeholder="YES=1, NO=0">
+    <br>
+    <br>
+
+
+    <input type="submit" value="Submit"><br><br>
+</form>
+</div>
+
+<div class ="result">
+    <h2 >
+      {% if predictione==1 %}
+				<h1 style="color:red;"><span class='danger'> You have HEART DISEASE.</span></h1>
+				
+			{% elif predictione==0 %}
+				<h1 style="color:rgb(77, 42, 233);"><span class='safe'>You DON'T have HEART DISEASE.</span></h1>
+				
+			{% endif %}
+      
+    </h2>
+  </div>
+
+    </div>
+</body>
+</html>
