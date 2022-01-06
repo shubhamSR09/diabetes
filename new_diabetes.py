@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-	return render_template('new_diabetes.html')
+	return render_template('templates/new_diabetes.html')
 
 
 @app.route('/predict', methods=['POST'])
@@ -42,7 +42,7 @@ def predict():
         
 
         
-    return render_template('diabetes_result.html', prediction=my_prediction)
+    return render_template('templates/diabetes_result.html', prediction=my_prediction)
     #return "than you"
     
 
