@@ -1,1 +1,1 @@
-web: gunicorn app:new_diabetes
+web:gunicorn app:new_diabetes
